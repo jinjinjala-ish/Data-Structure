@@ -24,5 +24,8 @@ public class ToStringArrayMain {
         System.out.println(tsa);
         tsa.removeLast();
         System.out.println(tsa);
+
+        System.out.println(tsa.get(3));
+        System.out.println(tsa.size());
     }
 }
