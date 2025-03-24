@@ -10,5 +10,9 @@ public class LinkedListMain {
         numbers.addLst(40);
         numbers.addLst(50);
         numbers.addLst(60);
+
+        System.out.println(numbers.node(0)); //0번째 인덱스를 가진 노드를 반환 //10
+
+        numbers.add(2, 25);
     }
 }

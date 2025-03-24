@@ -39,4 +39,28 @@ public class LinkedList {
             size++;
         }
     }
+
+    public Node node(int index) {
+        Node x = head;
+        for (int i = 0; i < index; i++) {
+            x = x.next;
+        }
+        return x;
+    }
+
+    public void add(int k, Object input) { //k는 인덱스 값  //k = 2
+        if (k == 0) {
+            addFirst(input);
+        } else {
+            Node temp1 = node(k-1); //temp1 = 20
+            Node temp2 = temp1.next; //temp2 = 30;
+            Node newNode = new Node(input); //newNode = 25
+            temp1.next = newNode;  //temp1.next = 25
+            newNode.next = temp2;  //newNode.next = 30
+            size++;
+            if(newNode.next == null){
+                tail = newNode;
+            }
+        }
+    }
 }
