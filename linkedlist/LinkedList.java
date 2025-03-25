@@ -63,4 +63,58 @@ public class LinkedList {
             }
         }
     }
+
+    public String toString(){
+        if(head == null){
+            return "[]";
+        }
+        Node temp = head;
+        String str = "[";
+        while (temp.next != null){
+            str += temp.data + ", ";
+            temp = temp.next;
+        }
+        str += temp.data;
+        return str + "]";
+    }
+
+    public Object removeFirst() {
+        Node temp = head;
+        head = head.next;
+        Object returnData = temp.data;  //삭제할 노드(temp)의 데이터 저장
+        temp = null;  //temp의 가비지컬렉션 처리
+        size--;
+        return returnData;
+    }
+
+    public Object remove(int k) {
+        if (k == 0) {
+            return removeFirst();
+        } else {
+            Node temp = node(k-1);
+            Node todoDeleted = temp.next;
+            Node temp2 = todoDeleted.next;
+            temp.next = temp2;
+            Object returnData = todoDeleted.data;
+            if (todoDeleted == tail) {
+                tail = temp;
+            }
+            todoDeleted = null;
+            size--;
+            return returnData;
+        }
+    }
+
+    public Object removeLast() {
+        return remove(size - 1);
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public Object get(int k) {
+        Node temp = node(k);
+        return temp.data;
+    }
 }
